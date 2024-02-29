@@ -8,3 +8,7 @@ body {
   background-color: #000000;
   color: #ffffff;
 }
+
+html {
+  color-scheme: dark;
+}

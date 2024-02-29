@@ -4,10 +4,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Home from "./pages/home";
-import { useEffect } from "react";
-import { getNowPlaying } from "./api/movie";
 import Page from "./pages";
+import Home from "./pages/home";
 import Movies from "./pages/movies";
 import Shows from "./pages/shows";
 
@@ -22,9 +20,6 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  useEffect(() => {
-    getNowPlaying();
-  }, []);
   return <RouterProvider router={router} />;
 }
 
