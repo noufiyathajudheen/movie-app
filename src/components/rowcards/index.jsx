@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { getTrending } from "../../api";
+import React from "react";
+import Card from "../card";
 import { RowCardsContainer } from "./style";
 
-const RowCards = () => {
-  const [trending, setTrending] = useState([]);
-
-  useEffect(() => {
-    getTrending().then((response) => {
-      setTrending(response?.results);
-    });
-  }, []);
-  console.log(trending);
-
+const RowCards = ({ variant, title, data }) => {
   return (
-    <RowCardsContainer>
-      {trending?.map((item) => (
-        <img
-          src={`https://image.tmdb.org/t/p/original${item?.poster_path}`}
-          alt={item?.original_title}
-        />
-      ))}
-    </RowCardsContainer>
+    <>
+      <h2>{title}</h2>
+      <RowCardsContainer>
+        {data?.map((item) => (
+          <Card
+            variant={variant}
+            image={item?.poster_path}
+            alt={item?.original_title}
+          />
+        ))}
+      </RowCardsContainer>
+    </>
   );
 };
 
