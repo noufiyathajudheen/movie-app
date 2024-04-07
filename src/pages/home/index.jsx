@@ -19,6 +19,7 @@ const Home = () => {
       setShows(response?.results);
     });
   }, []);
+  console.log(shows);
 
   return (
     <HomeContainer>
